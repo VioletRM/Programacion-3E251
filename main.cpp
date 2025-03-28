@@ -16,18 +16,36 @@ int main(int argc, char const *argv[])
 } */
 
 #include "Serie.hpp"
+#include <ftxui/screen/screen.hpp>
+#include <ftxui/dom/elements.hpp>
+using namespace std;
+using namespace ftxui;
 
 int main(int argc, char const *argv[])
 {
-    Serie serieNavidenia;
+//ftxui::Screen pantalla(10,10);
+auto pantalla = Screen::Create(
+    Dimension::Full(),
+    Dimension::Full()
 
-   // serieNavidenia.Imprimir();
-    serieNavidenia.EncenderTodo();
-    serieNavidenia.Imprimir();
-    serieNavidenia.ApagarCantidad(5);
-    serieNavidenia.Imprimir();
-    serieNavidenia.ApagarTodo();
-    serieNavidenia.Imprimir();
+);
+
+    auto documento = vbox(
+    spinner(21,1)
+
+);
+Render(pantalla, documento);
+pantalla.Print();
+
+//     Serie serieNavidenia;
+
+//    // serieNavidenia.Imprimir(); ctr+k+c
+//     serieNavidenia.EncenderTodo();
+//     serieNavidenia.Imprimir();
+//     serieNavidenia.ApagarCantidad(5);
+//     serieNavidenia.Imprimir();
+//     serieNavidenia.ApagarTodo();
+//     serieNavidenia.Imprimir();
     
-    return 0;
+   return 0;
 }

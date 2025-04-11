@@ -14,3 +14,9 @@ run : $(EXE)
 
 clean :
 	rm $(BIN)/*
+
+binario: bin/binario
+	./$<
+
+bin/binario: src/binario.cpp
+	c++ $< -o $@ -I$(INCLUDE)
